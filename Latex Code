@@ -1,0 +1,382 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{gensymb}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
+
+\title {Math 480 Final Project}
+\author {Trevor Lewis}
+\date {June 10, 2013}
+
+\begin{document}
+
+\maketitle
+\newpage
+\section{Table of contents}
+\\
+\indent{}
+\\
+\indent{1.1 ............................................................................................ Introduction}
+\\
+\newline
+\indent{1.2 ....................................................................................... List of Lemmas}
+\\
+\newline
+\indent{1.3 ................................................................................... Mathematical Ties}
+\\
+\newline
+\indent{1.4 .................................................................................. The Golden Ratio}
+\\
+\newline
+\indent{1.5 .............................................................................. The Regular Pentagon}
+\\
+\newline
+\indent{1.6 ........................................................................................ APPENDIX A}
+\\
+\newline
+\indent{1.7 ........................................................................................ APPENDIX B}
+
+\newpage
+
+\subsection{Introduction}
+
+The idea behind this paper is to explor the golden ration and how it applies to mathematics. We will challenge it by proving its deep roots in geometry. The golden ratio is a phenomenal number which has prevalence in a huge variety of mathematics and other pedigrees. Recognized potentially in 400 BC, this number has gained the attention of countless mathematicians and individuals of all different disciplines. This famous number is most common represented by the Greek letter phi, $\varphi$ and its approximation is 1.6180339887... (see equation 1.1).
+
+It is speculated that the oldest example of the golden ratio lies in the
+Parthenon, a Greek temple built in 447BC. The height of the Parthenon's columns as well as the width can be shown to illustrate the golden ratio in design, however, whether this was done by chance or on purpose is a still debated subject. Euclid (325BC - 265BC) provided the first known written definition of the golden ratio,although at the time he referred to it as the extreme and mean ratio. Since then, countless mathematicians have explored and researched this ratio.
+
+Why is the golden ratio so special? At first, this ratio was constructed and researched because of its very common occurrence in geometry. Examples include the construction of a regular pentagon, hexagon and many other geometric shapes. It also has interesting ties with sequences such as the Fibonacci sequence (see section 1.3).
+
+However, what really makes this number special is not its occurrence in math, but in biology, art, music, history, architecture and even psychology. The golden ratio appears in everything from Leonardo's paintings to the acoustic scale to the arrangements of branches along the stems of plants.
+
+Let's get a little technical and define what the golden ratio really is. The golden ratio is represented by the following equation:
+$$
+\varphi = {1+\sqrt{5} \over 2} = 1.61803398875...
+$$
+\hfill{(equation 1.1)}
+\newline
+
+Visually a way to describe the golden raio is with the "golden rectangle" where the longer side a and shorter side b, when placed adjacent to a square with sides of length a, will produce a similar golden rectangle with longer side a + b and shorter side a. This illustrates the relationship:
+$$
+\frac{a+b}{a} = \frac{a}{b} = \varphi
+$$
+\hfill{(equation 1.2)}
+\newline
+
+$$
+\includegraphics[width=3in]{GoldenRectangle.png}
+$$
+\hfill{(figure 1.3)}
+\newline
+
+Additionally an infinite series can be derived to express phi show in equation 1.4, however this is more interesting than it is useful in our regards.
+$$
+\varphi = {{13} \over 8} + \sum_{n=0}^{\infty}\frac{(-1)^{(n+1)}(2n+1)!}{(n+2)!n!4^{(2n+3)}}
+$$
+\hfill{(equation 1.4)}
+\newline
+
+We will now look at some of the notation that will be used throughout this paper. If you are familiar with common mathematical symbols and proof notation you may skip this section. Throughout this paper we will be proving various theorems and constructions, we will use a black square ($\blacksquare$) will denote when that prove has been completed.
+\\
+\linebreak
+$\overline{AB}$ denotes the line segment connecting the unique points A and B.
+\\
+\linebreak
+$\overrightarrow{AB}$ denotes the ray starting at point A going through the point B.
+\\
+\linebreak
+$\overleftrightarrow{AB}$ denotes the line passing through the points A and B.
+\\
+\linebreak
+m$\angle$ABC is the degree measurement of the angle, if you where given a point B and two additional points out in space unique of each other and  construct the rays BA and BC this would create your angle $\angle$ABC and thus could say m$\angle$ABC=$\theta$
+\\
+\linebreak
+|AB| denotes that distance or magnitude of the line segment AB, thus the distance from point A and point B. Hence we could say |AB| = c where c is a posotive number. We will commonly see |AB|=|CD| showing that to segments are equal in length.
+\\
+\linebreak
+We will use the nomenclature A $\star$ B $\star$ C to denote the case where if the distinct points A, B and C all lie on a line $\ell$ such that B is between A and C.
+$$
+\includegraphics[width=3in]{Between.png}
+$$
+\hfill{(figure 1.5)}
+\newline
+
+\subsection{List of Lemmas}
+In order to prove our constructions we must provide some ground rules, more or less, a place to start. When proving things we are assuming that nothing is known. For example, you could not just say draw a line l through the midpoint of AB, how do we know that such a point exists? The problem is, this is almost impossible. Thus we will start with Euclids book of elements, this can be found online or at your local library. This book proves and shows many things (exsistance of points and much more). Everything in this book we will assume is true and use throughout the paper. Additionally, In order to keep our proofs relatively brief we will define some lemmas and theorems that we can refer to, allowing us to assume certain things in our proofs without having to reprove/reconstruct it mulitple times.
+\\
+\newline
+$\mathbf{Definition}$ $\mathbf{1}$ (The Golden Triangle)
+\\
+A golden triangle is an isosceles triangle in which the ratio of the length of each leg to the length of the base is equal to the golden ratio. Thus $\frac{a}{b}=\varphi$
+$$
+\includegraphics[width=1.5in]{GoldenTriangle.png}
+$$
+\hfill{(figure 1.6)}
+\newline
+\\
+\textbf{Lemma 1:} Given a line segment, we can construct an equilateral triangle on either side of it.
+\\
+\textbf{Lemma 2:} Given any line segment, we can construct its midpoint
+\\
+\textbf{Lemma 3:} Given any segment, $\overline{AB}$, we can construct a perpendicular line to $\overleftrightarrow{AB}$ that
+contains B
+\\
+\textbf{Lemma 4:} Suppose A, B, and C are points. If A $\star$ B $\star$ C, then AB+BC=AC.
+\textbf{Lemma 5:} If $\overline{da}$ is a line such that $\overrightarrow{c}$ and $\overrightarrow{b}$ both lie on the same side of $\overline{da}$, then the measures of $\angle$ab, $\angle$bc, and $\angle$cd add up to 180$\degree$
+$$
+\includegraphics[width=3in]{LinearPair.png}
+$$
+\hfill{(figure 1.7)}
+\newline
+\\
+\textbf{Lemma 6:} In a right triangle, the hypotenuse is always longer than the legs.
+\\
+\textbf{Lemma 7:} Suppose C is a circle and $\ell$ is a line that contains a point in the interior of C. Then there are exactly two points where $\ell$ intersects C.
+\\
+\textbf{Lemma 8:} Suppose C and D are two circles where r and s are the radii respectively and d is the distance between there centers. If one of the following two conditions hold, then we can say that the circles intersect at two points where both points are on either side of the line containing there center.
+\begin{enumerate}[(a)]
+\item The inequalities are all true:
+\begin{center}
+    \text{d < r + t,    s < r + d,    r < d + s,}
+ \end{center}
+\item D contains a point in both the interior and exterior of C.
+\end{enumerate}
+\\
+\textbf{The Golden Ratio Equation:}
+$$
+\frac{1}{\varphi}=(\varphi - 1)=1.618034...
+$$
+\hfill{(equation 1.8)}
+\newline
+\\
+\textbf{The Regular Polygon:} Every equilateral polygon inscribed in a circle is regular.
+\\
+\linebreak
+\indent $\dagger$ REFERENCE APPENDIX A for detailed proofs of Lemma 1-4.
+\subsection{Mathematical Ties}
+
+The mathematics of the golden ratio and of the Fibonacci sequence are intimately interconnected. We will explore this relationship using SAGE. The Fibonacci sequence is:
+$$
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, ....
+$$
+We can use the following code in SAGE to compute the Fibonacci sequence to the $n^{th}$ term by setting the range to the number of places that we want.
+\begin{lstlisting}
+n = 10
+def Fibonacci ():
+    m, n = 0, 1
+    while 1:
+        yield m
+        m, n = n, m + n
+
+m = Fibonacci()
+
+m.next()
+
+for i in range(20): #assign how many places you want
+    m.next();
+\end{lstlisting}
+So what does this infinite set of numbers have to do with the golden ratio? If we take any number in the Fibonacci sequence and devide it by the number that comes directly before it, the result will be a number very close to the golden ratio thus we can show this by the following equation:
+$$
+\lim_{n\to\infty}\frac{F(n+1)}{F(n)}=\varphi
+$$
+\hfill{(equation 1.9)}
+\newline
+
+Where $F(n)$ represents the $n^{th}$ term in the Fibonacci sequence. Running the following code, we will be able to show that this relationship in fact holds true. Notice that varphi will get infinitely close to  $\varphi$. We can set num to any number however there is no reason to make it greater than 50.
+\begin{lstlisting}
+import math
+def MyFib(m,n, num = 50):
+    number = []
+    number.append(m)
+    number.append(n)
+    for i in range(num):
+        add = m+n
+        number.append(float(add))
+        m = n
+        n = add
+    return number
+def GoldenRatio(gold):
+    number = []
+    x = 0
+    y = 1
+    for u in range(len(l)-1):
+        ans = gold[y]/gold[y]
+        number.append(ans)
+        x += 1
+        y += 1
+    return number
+fib = MyFib(1,1)
+gold = GoldenRatio(fib)
+for varphi in l:
+    print varphi
+\end{lstlisting}
+\\
+In case you do not have access to SAGE we will write out the result if we set num = 12 and also show where the calulation came from.
+\newline
+\\
+$\frac{1}{1}$=1
+\\
+$\frac{2}{1}$=2.0
+\\
+$\frac{3}{2}$=1.5
+\\
+$\frac{5}{3}$=1.66666666667
+\\
+$\frac{8}{5}$=1.6
+\\
+$\frac{13}{8}$=1.625
+\\
+$\frac{21}{13}$=1.61538461538
+\\
+$\frac{34}{21}$=1.61904761905
+\\
+$\frac{55}{34}$=1.61764705882
+\\
+$\frac{89}{55}$=1.61818181818
+\\
+$\frac{144}{89}$=1.61797752809
+\\
+$\frac{233}{144}$=1.61805555556
+\\
+\newline
+Thus we can see that 1.61805555556 is closer to $\varphi$ than 1.61797752809 and therefore we have shown that equation 1.9 holds.
+\subsection{The Golden Ratio}
+
+$$
+\includegraphics[width=3in]{GoldenRatio.png}
+$$
+\hfill{(figure 1.10)}
+\newline
+
+Now, we will construct the golden ratio. First, construct any two points A and B. Next, we use Lemma
+2 to construct the midpoint of $\overline{AB}$, call this point M. After this, we use Lemma 3 to construct a line, $\ell$,
+perpendicular to $\overline{AB}$ through the point B. Then, we draw a circle centered at B passing through M
+and take D to be the point at which this circle intersects l. We know D exists by Lemma 8.
+
+If we connect A and D, then we know that $\bigtriangleup$ABD is a right triangle, and therefore, Corollary 5.17
+guarantees that |AD| > |BD|. Because of this, we can draw the circle, $\ell_2$ with center D passing
+through B, and let E be the point where $\ell_2$ meets the interior of $\overline{DA}$. Again, by Lemma 8, we can
+draw the circle l3 with center A and passing through E, and let E' be the point where $\ell_2$ intersects $\overrightarrow{AB}$.
+
+We will show that |AB|/|AE'|is equal to the golden ratio, $\varphi$. Note that |BD|=|BM|=$\frac{1}{2}$(|AB|) by construction. Further, the Pythagorean Theorem states that $|AD|^2 = |AB|^2 + |BD|^2$ which we can rewrite as $|AD|^2 = |AB|^2 + \frac{1}{4}(|AB|^2)$ or $|AD| = \frac{1}{2}(\sqrt{5})(|AB|)$. Note, also that $|DE| = |DB| = \frac{1}{2} |AB|$ and that |AE| = |AE'| by construction. In addition to this, since E lies in the interior of $\overline{AB}$, then A $\star$ E $\star$ D and thus by Lemma 4, |AE| + |DE| = |AD|. By using all of this information, we can say that:
+$$
+|AE'|=|AE|=|AD|-|DE|=\frac{1}{2}(\sqrt{5})(|AB|)-\frac{1}{2} |AB|=\frac{\sqrt{5}-1}{2}|AB|=(\varphi-1)|AB|
+$$
+And by the equation 1.8 we know that:
+$$
+(\varphi - 1)=\frac{1}{\varphi}
+$$
+So thus, $|AE'|=\frac{1}{\varphi}|AB|$ which by using simple algebra can be rewritten as:
+$$
+\frac{|AB|}{|AE'|}=\varphi
+$$
+\hfill $\blacksquare$
+
+\subsection{The Regular Pentagon}
+$$
+\includegraphics[width=3in]{Pent.png}
+$$
+\hfill{(figure 1.11)}
+\newline
+
+Next let's construct the regular pentagon using what we know about the golden ratio. Construct an arbitrary point O and construct a circle $C_1$ with center O. Let A be any point on $C_1$. Draw the line $\overleftrightarrow{AO}$ and let P be the point where $\overleftrightarrow{AO}$ intersects $C_1$. We know that P exists by Lemma 1. Further, since A and P are points on $C_1$ and since O is a point in the interior of $C_1$, we know that A $\star$ O $\star$ P. Let G be the point on the interior of $\overline{PO}$ such that $\frac{|PO|}{|PG|} = \varphi$, the golden ratio. We know we can construct this point from what we showed in the previous section. Note here that O $\star$ G $\star$ P which implies that A $\star$ G $\star$ P, Thus, A is not an interior point of $\overline{GP}$ (this will become important soon). Now, construct the circle $C_2$ centered at P and passing through the point G. Since P is an interior point of $C_2$, G is a point on $C_2$, and A is not an interior point of $\overline{GP}$, we know that A must lie in the exterior of $C_2$. Thus, $C_1$ contains a point in the interior of $C_2$ (P) and a point in the exterior of $C_2$ (A). By Lemma 8, this means that $C_1$ and $C_2$ intersect at two points. Let's call these points C and D. This theorem also guarantees that C and D lie on opposite sides of $\overleftrightarrow{OP}$.
+
+We note here that since C and D are points on $C_1$, the maximum value |CD| can take on would be $d_2$, the diameter of $C_2$. Further, we note that since O $\star$ G $\star$ P, then |OP| > |GP|. Thus, if we let $r_1$ be the radius of $C_1$ and $r_2$ be the radius of $C_2$, then we know that $r_1$ > $r_2$. This means that if $d_1$ is the diameter of $C_1$, then $d_1$ > $d_2$.
+Now, if we construct the line $\overleftrightarrow{OC}$, we know that $\overleftrightarrow{OC}$ intersects $C_1$ at two points (C and C') by Lemma 7. We know that $\overline{CC'}$ is a diameter of $C_1$ and thus |CC'| = $d_1$. Thus, we know that since $d_1$ > $d_2$ and since |CD| can be no larger than $d_2$, then |CC'| > |CD|. Thus, we can construct a point, D' in the interior of $\overline{CC'}$ such that |CD'| = |CD|. We know, then, that C $\star$ D' $\star$ C'. Now let's construct the circle centered at C and passing through D and call it $C_3$. Since |CD| = |CD'|, we know that D' lies on C3. Also, we know that C lies in the interior of C3. Further, since C $\star$ D $\star$ C', we know that C' does not lie in the interior of $\overline{CD'}$ we know that C' must lie in the exterior of $C_3$. Therefore, $C_1$ contains a point in the interior of $C_3$ (C) and a point in the exterior of $C_3$ (C'). Hence, by Lemma 8, we know that $C_1$ and $C_3$ must intersect at two points. Let's call the second point of intersection B.
+We use this same method to construct a circle, $C_4$, centered at D and passing through C. By the same argument as above, we know that $C_4$ intersects $C_1$ at two points so let the second point of intersection be E. We note here that since $\overline{CD}$ is a radius of both $C_3$ and $C_4$, then these circles are the same size. Thus, since $\overline{CB}$ is a radius of $C_3$ and since $\overline{DE}$ is a radius of $C_4$, then |CB| = |DE| = |CD|.
+
+Finally, construct the pentagon ABCDE which is inscribed in $C_1$ by construction and we would like to show that ABCDE is equilateral. Since $\overline{PC}$ and $\overline{PG}$ are radii of the circle $C_2$, we know that |PC| = |PG|. Similarly, we know that |PO| = |CO|. Thus, we know that $\frac{|PO|}{|PC|}  = \frac{|PO|}{|PG|} = \varphi$. It follows, then, that $\bigtriangleup$POC is a golden triangle and thus m$\angle$POC = 36$\degree$. Similarly, m$\angle$POD = 36$\degree$. Since D and C lie on opposite sides of $\overleftrightarrow{OP}$ then we know that $\angle$POC and $\angle$POD are adjacent angles. Thus m$\angle$COD = m$\angle$POC + m$\angle$POD = 36$\degree$ + 36$\degree$ = 72$\degree$.
+Now, let's consider $\bigtriangleup$BOC, $\bigtriangleup$DOE and $\bigtriangleup$COD. We know that |EO| = |DO| = |CO| = |BO| since they are all radii of $C_1$. Further, we have already stated that |ED| = |CD| = |BC|. Thus, we know, by the SSS congruence, that $\bigtriangleup$BOC is congruent to $\bigtriangleup$DOE is congruent to $\bigtriangleup$COD. Therefore, m$\angle$BOC = m$\angle$DOE = 72$\degree$. If we apply the Lemma 5 to $\angle$AOB, $\angle$BOC, and $\angle$POC, then we would see that:
+$$
+m\angle AOB = 180-m\angle BOC-m\angle POC = 180\degree-72\degree-36\degree = 72\degree.
+$$
+We use the same argument to show that m$\angle$AOE = 72$\degree$ as well. Once we have done this, we can use the Side-Angle-Side Congruence to prove that $\bigtriangleup$AOB is congruent to $\bigtriangleup$AOE and these two triangles are congruent to $\bigtriangleup$BOC, $\bigtriangleup$COD, and $\bigtriangleup$DOE.
+Hence, we know that |AB| = |BC| = |CD| = |DE| = |EA| which means that ABCDE is equilateral. Thus, by Lemma 9, it is a regular pentagon.
+\hfill $\blacksquare$
+
+
+\subsection{APPENDIX A}
+
+\textbf{Lemma 1:} Given a line segment, we can construct an equilateral triangle on either side of it.
+\\
+\Linebreak
+\textbf{Proof:} Given a segment $\overline{AB}$, we will construct an equilateral triangle.
+\begin{enumerate}
+\item{Construct a circle centered at the point A that goes through the point B, thus making our radius $\overline{AB}$}
+\item{Construct a circle centered at the point B that goes through the point A, thus making our radius $\overline{AB}$}
+\item{Our two circles intersect at two points (one intersection point on each side of our segment $\overline{AB}$). Let's call  these two intersection points C and C'.}
+\item{Connect A and C to form the segment $\overline{AC}$}
+\item{Similarly, connect B and C to form the segment $\overline{BC}$}
+\end{enumerate}
+$\bigtriangleup$ABC is an equilateral triangle. Similarly, by repeating steps 4 and 5, $\bigtriangleup$BAC' will also be an equilateral triangle.
+
+Thus by our construction, $\overline{AC}$ is a radius of the circle with radius $\overline{AB}$ and center A. So $\overline{AC}$ $\cong$ $\overline{AB}$. Similarly, by construction, $\overline{BC}$ is a radius of the circle with radius $\overline{AB}$ and center B. Thus is follows that $\overline{BC}$$\cong$$\overline{AB}$. Thus by the property of transitivity, $\overline{AC}$ $\cong$ $\overline{AB}$ $\cong$$\overline{BC}$, so all three sides of $\bigtriangleup$ABC are congruent, and therefore $\bigtriangleup$ABC is an equilateral triangle.
+\hfill $\blacksquare$
+\\
+\linebreak
+\textbf{Lemma 2:} Given any line segment, we can construct its midpoint
+\\
+\Linebreak
+\textbf{Proof:} This proof will build of of the construction of Lemma 1.
+\begin{enumerate}
+\item{Connect the point C and C' to form the segment $\overline{CC'}$ which will give us the triangles $\bigtriangleup$ACC' and $\bigtriangleup$BCC'
+\item{Label the intersection point ofs $\overline{CC'}$ as poitn M.
+\end{enumerate}
+We must now prove that this point M is the midpoint of $\overline{AB}$. We know that segments $\overline{AB}$, $\overline{BC}$, $\overline{AC'}$, and $\overline{BC'}$ are are all congruent to each other by the property of transitivity since they are all radii of our constructed circles with centers A and B (whose radii are equal to each other by construction). The segment $\overline{CC'}$ is clearly congruent to itself, thus by Side-Side-Side congruence, $\bigtriangleup$ACC' $\cong$ $\bigtriangleup$BCC'. We also know that $\bigtriangleup$ACC' and $\bigtriangleup$BCC' are isosceles triangles and thus it follows that $\angle$ACC' $\cong$ $\angle$AC'C and $\angle$BCC' $\cong$ $\angle$BC'C hence $\angle$ACC'$\cong$$\angle$BCC'. Now since $\overline{CM}$ is clearly congruent to itself, by Side-Angle-Side Congruence we have that $\bigtriangleup$CAM $\cong$ $\bigtriangleup$CBM. Therefore, $\overline{AM}$$\cong$$\overline{BM}$ which leads that |AM|=|MB| thus M is the midpoint of $\overline{AB}$
+\hfill $\blacksquare$
+\\
+\linebreak
+\textbf{Lemma 3:} Given any segment, $\overline{AB}$, we can construct a perpendicular line to $\overleftrightarrow{AB}$ that
+contains B
+\\
+\Linebreak
+\textbf{Proof:} By constructions of Lemma 1 and Lemma 2 we have constructed the segment $\overline{CM}$. $\overline{CM}$ is perpendicular to our given segment $\overline{AB}$. Becuase we have shown that $\bigtriangle$ABC is equilateral in Lemma 1,Since that angles in a triangle add up to 180,and we know all our angles are congruent since its a equilateral triangle m$\angle$CAB=m$\angle$CBA=m$\angle$C=60. Thus, by Lemma 2, and since mm$\angle$C=m$\angle$ACC'+m$\angle$BCC' we have that m$\angle$ACC'=m$\angle$BCC'=30. Now, since m$\angle$CAB=m$\angle$CBA=60 by simple algeba it follows that m$\angle$CMA=m$\angle$CMB=90. Thus, segment $\overline{CM}$ is perpendicular to segment $\overline{AB}$
+\hfill $\blacksquare$
+\\
+\linebreak
+\textbf{Lemma 4:} Suppose A, B, and C are points. If A $\star$ B $\star$ C, then AB+BC=AC.
+\\
+\Linebreak
+\textbf{Proof:} We will assume that the points A, B, and C are arranged such that A $\star$ B $\star$ C, This would imply that A,B,C all lie on some line $\ell$ and there is some coordinate function $f:\ell\mapsto\Re$ such that either $f(A) < f(B) < f(C)$ or $f(A) > f(B) > f(C)$. After interchanging the names of A and C if necessary, we may assume that $f(A) < f(B) < f(C)$.Because the absolute value of a positive number is the number itself, we have the following relationships:
+$$
+AB=|f(B)-f(A)|=f(B)-f(A):
+$$
+$$
+BC=|f(C)-f(B)|=f(C)-f(B):
+$$
+$$
+AC=|f(C)-f(A)|=f(C)-f(A):
+$$
+Adding the first two equations and subtracting the third, we find that all of the terms on the right-hand side cancel. Thus AB+BC-AC=0, which can be rearragned as AB+BC=AC
+\hfill $\blacksquare$
+
+\subsection{APPENDIX B}
+Note to Professor William Stein. I can say without reservation that MATH480 has been my favorite math class I have taken at the University of Washington over the past four years of studying here. This class allows us to explore the things that we find interesting which is so awesome! That is how it should be. I genuinely enjoyed writing this paper and honestly think it has become something bigger than just a final project for me. I plan on expanding it and improving it even after this course it over. $\LaTeX$ and SAGE are such a great tools and I am so glad I got the opportunity to learn them. Thank you for making my last math class as an undergrad so beneficial and good luck on your future endeavors with SAGE and skateboarding.
+
+
+\end{document}
