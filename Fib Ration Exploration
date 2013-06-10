@@ -1,0 +1,25 @@
+import math
+def MyFib(m,n, num = 50):
+    number = []
+    number.append(m)
+    number.append(n)
+    for i in range(num):
+        add = m+n
+        number.append(float(add))
+        m = n
+        n = add
+    return number
+def GoldenRatio(gold):
+    number = []
+    x = 0
+    y = 1
+    for u in range(len(l)-1):
+        ans = gold[y]/gold[y]
+        number.append(ans)
+        x += 1
+        y += 1
+    return number
+fib = MyFib(1,1)
+gold = GoldenRatio(fib)
+for varphi in l:
+    print varphi
